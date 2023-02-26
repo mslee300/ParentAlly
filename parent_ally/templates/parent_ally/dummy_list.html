@@ -1,0 +1,10 @@
+{% block content %}
+  <h1>Postings</h1>
+  <ul>
+    {% for posting in postings_list %}
+      <li>{{ posting }}</li>
+    {% empty %}
+      <li>No Postings found.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
