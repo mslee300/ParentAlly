@@ -1,7 +1,18 @@
+"""
+This module stores utility functions for calculating distances
+between locations.
+"""
+
 import math
 
 
 def distance(lat1, lon1, lat2, lon2):
+    """
+    Use the Haversine formula to mathematically calculate 
+    the distance between two coordinates. Negative coordinates
+    indicate West and South, and positive coordinates indicate
+    North and East.
+    """
     # Convert latitude and longitude to radians
     lat1, lon1, lat2, lon2 = map(math.radians, [lat1, lon1, lat2, lon2])
 

@@ -4,8 +4,11 @@ from . import views
 app_name = 'parent_ally'
 urlpatterns = [
     path('', views.index, name='index'),
-    path('list/', views.ListView.as_view(), name='list'),
-    path('detail/<int:pk>/', views.DetailView.as_view(), name='detail'),
-    path('delete/<int:pk>/', views.delete_posting, name='delete'),
-    path('create/', views.create_posting, name='create-posting')
+    path('list/', views.view_posts_list, name='list'),
+    path('detail/<int:pk>/', views.view_post, name='detail'),
+    path('delete/<int:pk>/', views.delete_post, name='delete'),
+    path('delete-comment/<int:pk>',
+         views.delete_comment,
+         name='delete-comment'),
+    path('create-post/', views.create_post, name='create-posting'),
 ]

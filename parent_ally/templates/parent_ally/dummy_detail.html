@@ -1,3 +1,30 @@
 {% block content %}
-  <h1>{{ posting }}</h1>
+  <h1>{{ post }}</h1>
+
+  <ul>
+    {% for comment in post.posting_comment.all %}
+      <li>{{ comment.content }}</li>
+    {% endfor %}
+  </ul>
+
+  {% if user.is_authenticated %}
+  <h3>Add Comment</h3>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+  </form>
+  {% endif %}
+
+  {% if user.is_authenticated %}
+  {% if post.author.user == user %}  
+  <h3>Edit Post</h3>
+  <form method="post">
+    {% csrf_token %}
+    {{ form2.as_p }}
+    <button type="submit">Submit</button>
+  </form>
+  {% endif %}
+  {% endif %}
+
 {% endblock %}

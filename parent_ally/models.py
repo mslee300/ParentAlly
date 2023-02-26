@@ -16,7 +16,7 @@ class Profile(models.Model):
         return "Profile for: " + str(self.user)
 
 
-class Posting(models.Model):
+class Post(models.Model):
     author = models.ForeignKey(Profile,
                                on_delete=models.CASCADE,
                                related_name='author_posting')
@@ -34,7 +34,7 @@ class Comment(models.Model):
     author = models.ForeignKey(Profile,
                                on_delete=models.CASCADE,
                                related_name='author_comment')
-    post = models.ForeignKey(Posting,
+    post = models.ForeignKey(Post,
                              on_delete=models.CASCADE,
                              related_name="posting_comment")
     content = models.TextField()
