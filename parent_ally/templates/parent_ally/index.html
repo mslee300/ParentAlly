@@ -32,7 +32,7 @@
 
   
   <div class="data_box">
-    <a href="#">
+    <a href="/details1">
       <article class="flex_data">
         <div class="picture-box">
           <span style="box-sizing:border-box;display:block;overflow:hidden;background:none;opacity:1;"><img src="https://i.insider.com/6116a07f3dd01000199d9aa7?width=1200&format=jpeg" decoding="async" data-nimg="fill" class="_19qbbiq0 _19qbbiq1 w7pzr9a" style="width:108;height:108;border-radius:8px;">
@@ -40,7 +40,7 @@
         </div>
         <div class="text-box">
           <p class="data-title">Free vacuum cleaner</p>
-          <p class="data-text">I'm giving out a free vaccum cleaner to those in need</p>
+          <p class="data-text">I'm giving out a free vaccum cleaner to those in need. Help yourself.</p>
           <p class="mile-text">Less than a miles away</p>
         </div>
       </article>
@@ -166,13 +166,23 @@
     </a> 
   </div>
 
+<img type="button" onclick="hideImage();" id="post-image" src="/static/img/post.png" style="visibility:hidden; z-index: auto;">
 
   
 </div>
-<div><a href="#" id="question-button" class="btn btn-primary-main"><img src="/static/img/edit.png" width="35">&nbsp;Add</a></div>
+<div><a href="#" type="button" onclick="showImage();" id="question-button" class="btn btn-primary-main"><img src="/static/img/edit.png" width="35">&nbsp;Add</a></div>
 </section>
 <footer>
     <p style="margin-bottom:300px;">Copyright ©ParentAlly 2023. All rights reserved. | <a href="mailto:mslee300@bu.edu" class="credits">Contact</a></p>
 </footer>
+
+<script>
+    function showImage(){
+        document.getElementById('post-image').style.visibility='visible';
+    }
+    function hideImage(){
+        document.getElementById('post-image').style.visibility='hidden';
+    }
+</script>
 {% endblock %}
 

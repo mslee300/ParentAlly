@@ -8,6 +8,7 @@ from .forms import PostForm, CommentForm
 
 
 # Create your views here.
+@login_required(login_url='common:login')
 def index(request):
     """The home page"""
     return render(request, 'parent_ally/index.html')
@@ -198,3 +199,19 @@ def create_post(request):
         context = {'form': form}
 
     return render(request, 'parent_ally/posting_form.html', context)
+
+
+def new_post(request):
+    return render(request, 'parent_ally/post.html')
+
+
+def details_1(request):
+    return render(request, 'parent_ally/details_1.html')
+
+
+def details_5(request):
+    return render(request, 'parent_ally/details_5.html')
+
+
+def details_7(request):
+    return render(request, 'parent_ally/details_7.html')
