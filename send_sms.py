@@ -4,8 +4,8 @@ import datetime
 
 from twilio.rest import Client
 
-account_sid = "AC1cafccea85d3e382b350a26ab66d44a6"
-auth_token = "72efe62300045f569ae384201b674086"
+account_sid = os.enviorn["TwilioKey"]  
+auth_token = os.enviorn["TwilioToken"]
 client = Client(account_sid, auth_token)
 
 
