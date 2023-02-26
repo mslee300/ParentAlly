@@ -1,0 +1,314 @@
+body {
+  font-family: "Inter";
+  font-weight: bold;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* SiGNUP PAGE */
+.signup-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  background: #ffffff;
+  margin-top: 0px;
+  animation: slide 1s ease-in-out;
+}
+
+.box label {
+  color: #818181;
+  margin-top: 10px;
+  font-weight: 500;
+  animation: slide 1s ease-in-out;
+}
+
+.logoname img {
+  width: 150px;
+  max-width: 50%;
+  margin-left: 120px;
+  margin-top: 40px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.signup-box form {
+  display: flex;
+  flex-direction: column;
+  animation: slide 1s ease-in-out;
+}
+
+.signup-btn {
+  width: 450px;
+  height: 46px;
+  border: none;
+
+  background-color: #795ced;
+  border-radius: 4px;
+
+  font-family: "Inter";
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+
+  cursor: pointer;
+}
+
+.welcome {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 27px;
+
+  animation: slide 1s ease-in-out;
+}
+
+/* @keyframes slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+} */
+
+a:link {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="confirm-password"] {
+  width: 444px;
+  height: 36px;
+  border: 1px solid #d7d7d7;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.signup-box p {
+  margin-top: 20px;
+  text-align: center;
+  color: #3a3a3a;
+  font-weight: bold;
+  animation: slide 1s ease-in-out;
+}
+
+/* -END- SiGNUP PAGE -END- */
+
+/* FRAME 7 */
+.header7 {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav img {
+  width: 150px;
+}
+
+.topbar {
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+
+.topbar ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 0 30px;
+  position: relative;
+  top: -40px;
+}
+
+.topbar ul li a {
+  color: #4e5159;
+  text-decoration: none;
+}
+
+.topbar ul li::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background-color: #795ced;
+  display: block;
+  margin: auto;
+  transition: 0.5s;
+}
+
+.topbar ul li:hover::after {
+  width: 100%;
+}
+
+.header-search {
+  margin-left: 200px;
+  position: relative;
+  top: -35px;
+}
+
+.header-search .searchbar {
+  width: 280px;
+  height: 42px;
+  background-color: #f2f3f6;
+  border: none;
+  text-align: left;
+  font-size: 16px;
+  line-height: 29px;
+  color: #878c93;
+  font-weight: 400;
+}
+
+.searchbutton {
+  box-sizing: border-box;
+  width: 89px;
+  height: 42px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #fff;
+  border: 1.5px solid #d1d3d9;
+  font-weight: bold;
+  animation: slide 1s ease-in-out;
+}
+
+input {
+  text-indent: 8px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+}
+
+.topbar,
+.header-search {
+  display: inline-block;
+}
+
+.main {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 90vh;
+  background: #fff;
+  justify-content: space-between;
+}
+
+.donut {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.donut img {
+  border-radius: 10px;
+  width: 50%;
+  position: relative;
+  top: -680px;
+}
+
+.item h1 {
+  top: -680px;
+}
+
+/* Meant to handle mobile and smaller devices. */
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  body {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .signup-box {
+    height: 80vh;
+    margin-top: 20px;
+  }
+
+  .logoname img {
+    width: 6rem;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="confirm-password"] {
+    width: 90%;
+    height: 32px;
+    margin-bottom: 8px;
+  }
+
+  .signup-btn {
+    width: 150px;
+    height: 36px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: relative;
+    left: 45%;
+    margin: 0.5rem;
+    transform: translateX(-55%);
+  }
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #BFBFBF;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #BFBFBF;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #BFBFBF;
+}x
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  body {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  .signup-box {
+    height: 70vh;
+    margin-top: 40px;
+  }
+
+  .logoname img {
+    width: 10rem;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="confirm-password"] {
+    width: 90%;
+    height: 36px;
+    margin-bottom: 10px;
+  }
+
+  .signup-btn {
+    width: 200px;
+    height: 46px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

@@ -16,4 +16,4 @@ def signup(request):
             return redirect('/')
     else:
         form = UserForm()
-    return render(request, 'common/signup.html', {'form': form})
+    return render(request, 'parent_ally/signup.html', {'form': form})
