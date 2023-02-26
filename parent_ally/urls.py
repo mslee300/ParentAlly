@@ -3,7 +3,10 @@ from . import views
 
 app_name = 'parent_ally'
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.view_posts_list, name='index'),
+    path('assistance/', views.view_assistance_list),
+    path('programs/', views.view_programs_list),
+    path('connect/', views.view_connect_list),
     path('list/', views.view_posts_list, name='list'),
     path('detail/<int:pk>/', views.view_post, name='detail'),
     path('delete/<int:pk>/', views.delete_post, name='delete'),

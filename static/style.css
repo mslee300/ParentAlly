@@ -242,7 +242,7 @@ _1nvz3xs3 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  width: 100%;
+  min-width: 364px;
 }
 
 .data_box {

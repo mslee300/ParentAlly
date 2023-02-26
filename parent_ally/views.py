@@ -33,10 +33,69 @@ def view_posts_list(request):
         # Generate the context dictionary for the template
         form = PostForm()
         # Five most recent posts
-        postings_list = Post.objects.order_by('-create_date')[:5]
+        postings_list = Post.objects.filter(
+            type='sharespace').order_by('-create_date')
         context = {'form': form, 'postings_list': postings_list}
 
-    return render(request, 'parent_ally/dummy_list.html', context)
+    return render(request, 'parent_ally/index.html', context)
+
+
+def view_assistance_list(request):
+    """Lists all available posts with the option for authenticated users to create a new post"""
+    # If form submitted
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            # Add the form to the database
+            posting = form.save(commit=False)
+            posting.create_date = timezone.now()
+            posting.like_count = 0
+            profile = Profile.objects.get(user=request.user)
+            posting.author = profile
+            posting.save()
+
+            return redirect('/')
+    # GET request
+    else:
+        # Generate the context dictionary for the template
+        form = PostForm()
+        # Five most recent posts
+        postings_list = Post.objects.filter(
+            type='assistance').order_by('-create_date')
+        context = {'form': form, 'postings_list': postings_list}
+
+    return render(request, 'parent_ally/assistance.html', context)
+
+
+def view_connect_list(request):
+    """Lists all available posts with the option for authenticated users to create a new post"""
+    # If form submitted
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            # Add the form to the database
+            posting = form.save(commit=False)
+            posting.create_date = timezone.now()
+            posting.like_count = 0
+            profile = Profile.objects.get(user=request.user)
+            posting.author = profile
+            posting.save()
+
+            return redirect('/')
+    # GET request
+    else:
+        # Generate the context dictionary for the template
+        form = PostForm()
+        # Five most recent posts
+        postings_list = Post.objects.filter(
+            type='connect').order_by('-create_date')
+        context = {'form': form, 'postings_list': postings_list}
+
+    return render(request, 'parent_ally/connect.html', context)
+
+
+def view_programs_list(request):
+    return render(request, 'parent_ally/programs.html')
 
 
 class ListViewNoImages(generic.ListView):
@@ -86,19 +145,19 @@ def view_post(request, pk):
 
 
 def edit_comment(request, pk):
-  """
+    """
   Edit a comment if it exists. Only the commenter can do this. 
   Throw a 404 error if the comment does not exist. Redirect the 
   user to the post the comment responds to if successful.
   """
-  comment = get_object_or_404(Comment, pk=pk)
-  form = CommentForm(request.POST, instance=comment)
-  if form.is_valid() and request.user == comment.author.user:
-      comment = form.save()
+    comment = get_object_or_404(Comment, pk=pk)
+    form = CommentForm(request.POST, instance=comment)
+    if form.is_valid() and request.user == comment.author.user:
+        comment = form.save()
 
-  page_pk = comment.post.pk
-  return redirect(f'/detail/{page_pk}')
-  
+    page_pk = comment.post.pk
+    return redirect(f'/detail/{page_pk}')
+
 
 @login_required(login_url='common:login')
 def delete_post(request, pk):
